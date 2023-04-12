@@ -355,7 +355,7 @@ export class AppComponent {
         const pdfBlob = pdf.output('blob');
         const formData = new FormData();
         formData.append('pdf', pdfBlob, 'ethiopia.pdf');
-        this.http.post('https://example.com/api/pdf', formData).subscribe(
+        this.http.post('https://localhost:7031/printing/print', formData).subscribe(
           response => console.log('PDF sent successfully'),
           error => console.log('Error sending PDF:', error)
         );
