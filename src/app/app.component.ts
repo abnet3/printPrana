@@ -315,8 +315,11 @@ import jsPDF from 'jspdf';
 export class AppComponent {
   firstName = 'John';
   lastName = 'Doe';
-  constructor(private http: HttpClient) {}
   @ViewChild('box') box!: ElementRef;
+
+  constructor(private http: HttpClient) { }
+
+
   downloadPDF() {
     const element = this.box.nativeElement;
     if (element) {
@@ -364,23 +367,5 @@ export class AppComponent {
       console.log('Error: element not found');
     }
   }
-  sendPDF() {
-    const element = document.getElementById('table');
-    if (element) {
-      html2canvas(element, {useCORS: true}).then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF();
-        pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
-        const pdfBlob = pdf.output('blob');
-        const formData = new FormData();
-        formData.append('pdf', pdfBlob, 'ethiopia.pdf');
-        this.http.post('https://localhost:7031/printing/print', formData).subscribe(
-          response => console.log('PDF sent successfully'),
-          error => console.log('Error sending PDF:', error)
-        );
-      });
-    } else {
-      console.log('Error: element not found');
-    }
-  }
+
 }
