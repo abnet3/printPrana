@@ -32,8 +32,8 @@ interface Question {
             <div class="company">Prana Events</div>
             <div class="country">Ethiopia</div>
             <img
-              class="qr-code"
-              src="https://api.qrserver.com/v1/create-qr-code/?data=Sample%20QR%20code%20data&amp;size=100x100&amp;color=000000&amp;bgcolor=FFFFFF&amp;qzone=1"
+              class="qr-code" height="100" width="100"
+              src="https://res.cloudinary.com/prana-events/image/upload/v1680707298/f8lbsarvihn2zjey1rne.png"
             />
           </div>
           <div class="footer">
