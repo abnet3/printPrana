@@ -672,6 +672,8 @@ export class AppComponent {
         this.onSubmit();
       }
     } catch (e) {
+
+      console.log("Invalid Scan please try again");
       // JSON is not yet fully pasted or is invalid
     }
   }
@@ -684,8 +686,6 @@ export class AppComponent {
       return false;
     }
   }
-
-
 
 
   onSubmit() {
