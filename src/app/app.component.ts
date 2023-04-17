@@ -51,6 +51,10 @@ interface Question {
         <img src="https://res.cloudinary.com/prana-events/image/upload/v1680701189/2_giat3m.png">
       </div>
     </div>
+
+    <div class="row">
+
+    </div>
     <textarea [(ngModel)]="jsonString" (ngModelChange)="onJsonChange()"></textarea>
     <button (click)="downloadPDF()">Download PDF</button>
     <button (click)="printPdf()">Send PDF</button>
@@ -538,7 +542,7 @@ export class AppComponent {
         pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
         const pdfBlob = pdf.output('blob');
         const formData = new FormData();
-        formData.append('pdf', pdfBlob, 'ethiopia.pdf');
+        formData.append('documentFile', pdfBlob, 'ethiopia.pdf');
         this.http.post('https://localhost:7031/printing/print', formData).subscribe(
           response => console.log('PDF sent successfully'),
           error => console.log('Error sending PDF:', error)
